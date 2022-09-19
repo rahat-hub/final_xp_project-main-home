@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class TextButtons{
-  static textButtons({text,RoutesName,alignment}){
+  static textButtons({text,RoutesName,TextAlign? alignment}){
     return TextButton(
       onPressed: (){
         Get.toNamed(RoutesName);

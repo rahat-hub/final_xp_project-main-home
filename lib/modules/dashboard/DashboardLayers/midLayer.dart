@@ -80,7 +80,7 @@ class DashboardMidLayer {
                         elevation: 10,
                         child: Center(
                           child: Text(
-                            '10\n Total Members',
+                            '2347\nDaily Expenses',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -102,7 +102,7 @@ class DashboardMidLayer {
                         elevation: 10,
                         child: Center(
                           child: Text(
-                            '17\n Total Meals',
+                            '17\nTotal Bazar',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,

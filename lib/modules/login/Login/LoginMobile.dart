@@ -20,6 +20,8 @@ class LoginPageMobilePortrait extends GetView<LoginLogic>{
     return Scaffold(
       backgroundColor: Color(0xff5E4949),
       body: ListView(
+        //mainAxisAlignment: MainAxisAlignment.center,
+        //crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const SizedBox(height: 170,),
           SvgPicture.asset('assets/images/messxp.svg', height: MediaQuery.of(context).size.height * .10,),
