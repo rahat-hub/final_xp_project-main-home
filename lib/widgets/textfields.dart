@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
+
 abstract class TextFieldProject {
-  static textField({hintText, obscureText, inputText}) {
+  static textField(
+      {
+      hintText,
+      obscureText,
+      inputText,
+      validation}) {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: inputText,
+      //controller: controllerChacker,
       obscureText: obscureText,
+
+      validator: validation,
+
+      /*onSaved: (value) {
+        controllerChacker.email = value!;
+      },
+      validator: (value) {
+        return controllerChacker.validateEmail(value!);
+      },*/
       style: const TextStyle(
         color: Colors.white,
         fontSize: 20,
@@ -39,20 +55,12 @@ abstract class TextFieldProject {
         ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color(0xffF2C94C),
+            color: Colors.red,
             width: 2,
           ),
           borderRadius: BorderRadius.circular(20.0),
         ),
       ),
-      validator: (value) {
-        if (value!.isEmpty ||
-            RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w]{2,4}').hasMatch(value!)) {
-          return "Enter correct email";
-        } else {
-          return null;
-        }
-      },
     );
   }
 }

@@ -17,7 +17,6 @@ abstract class TextButtons{
             fontSize: 18,
             color: Color(0xffF2C94C),
           ),
-
         ),
       ),
     );

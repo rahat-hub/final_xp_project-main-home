@@ -2,6 +2,7 @@ import 'package:final_xp_project/modules/registration/registration_logic.dart';
 import 'package:final_xp_project/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -27,19 +28,38 @@ class RegisterPageMobilePortrait extends GetView<RegistrationLogic>{
           SvgPicture.asset('assets/images/messxp.svg', height: MediaQuery.of(context).size.height * .10,),
           const SizedBox(height: 50,),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 5.0),
-            child: TextFieldProject.textField(hintText:'Your name',obscureText: false, inputText: TextInputType.name,),
+            child: TextFieldProject.textField(hintText:'Your name',obscureText: false, inputText: TextInputType.name,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter your name"),
+                  FormBuilderValidators.minLength(8,errorText: "Please enter valid email")
+                ])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Email',obscureText: false, inputText: TextInputType.emailAddress,),
+            child: TextFieldProject.textField(hintText:'Email',obscureText: false, inputText: TextInputType.emailAddress,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter email"),
+                  FormBuilderValidators.email(errorText: "Please enter valid email")
+                ])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Phone',obscureText: false, inputText: TextInputType.number,),
+            child: TextFieldProject.textField(hintText:'Phone',obscureText: false, inputText: TextInputType.number,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter phone number"),
+                  FormBuilderValidators.numeric(errorText: "Type number"),
+                  FormBuilderValidators.maxLength(11,errorText: "Phone number is not valid")
+                ])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Password',obscureText: true, inputText: TextInputType.visiblePassword),
+            child: TextFieldProject.textField(hintText:'Password',obscureText: true, inputText: TextInputType.visiblePassword,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter Password"),
+                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Confirm Password',obscureText: true, inputText: TextInputType.visiblePassword),
+            child: TextFieldProject.textField(hintText:'Confirm Password',obscureText: true, inputText: TextInputType.visiblePassword,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter Password"),
+                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")])),
           ),
           const SizedBox(height: 30,),
           Padding(padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 30.0),

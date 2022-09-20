@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class Buttons{
-  static buttons({text,RoutesName}){
+  static buttons({text,RoutesName,onTap}){
     return MaterialButton(
       minWidth: double.infinity,
       height: 60,

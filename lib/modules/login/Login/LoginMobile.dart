@@ -2,6 +2,7 @@ import 'package:final_xp_project/modules/login/login_logic.dart';
 import 'package:final_xp_project/widgets/textfields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import '../../../routes/app_pages.dart';
@@ -27,11 +28,20 @@ class LoginPageMobilePortrait extends GetView<LoginLogic>{
           SvgPicture.asset('assets/images/messxp.svg', height: MediaQuery.of(context).size.height * .10,),
           const SizedBox(height: 70,),
           Padding(padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-            child: TextFieldProject.textField(hintText: "Email",obscureText: false,inputText: TextInputType.emailAddress),
+            child: TextFieldProject.textField(hintText: "Email",obscureText: false,inputText: TextInputType.emailAddress,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter email"),
+                  FormBuilderValidators.email(errorText: "Please enter valid email")
+                ])),
           ),//TextFieldEmail
           Padding(padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
-            child: TextFieldProject.textField(hintText: "Password",obscureText: true,inputText: TextInputType.visiblePassword),
-          ),//TextFieldPassword
+            child: TextFieldProject.textField(hintText: "Password",obscureText: true,inputText: TextInputType.visiblePassword,
+                validation: FormBuilderValidators.compose([
+                  FormBuilderValidators.required(errorText: "Enter Password"),
+                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")])
+              ),
+            ),
+          //TextFieldPassword
           Padding(padding: const EdgeInsets.symmetric(vertical: 10.0,horizontal: 10.0),
             child: Buttons.buttons(text: "Login",RoutesName: AppPages.DASHBOARD),
           ),//LoginButtons
@@ -46,7 +56,7 @@ class LoginPageMobilePortrait extends GetView<LoginLogic>{
                   width: 20,
                 ),
                 Obx(
-                  () => Checkbox(
+                      () => Checkbox(
                       checkColor: const Color(0xffF2C94C),
                       activeColor: const Color(0xffF2C94C),
                       shape: const CircleBorder(
@@ -54,10 +64,10 @@ class LoginPageMobilePortrait extends GetView<LoginLogic>{
                       value: controller.checkBool1.value,
                       onChanged: (value) {
                         controller.checkBool1.value =
-                            !controller.checkBool1.value;
+                        !controller.checkBool1.value;
                         if (controller.checkBool2 != false.obs) {
                           controller.checkBool1.value =
-                              !controller.checkBool1.value;
+                          !controller.checkBool1.value;
                         }
                       }),
                 ),
@@ -76,23 +86,23 @@ class LoginPageMobilePortrait extends GetView<LoginLogic>{
                   width: 50,
                 ),
                 Obx(
-                  () => Checkbox(
+                      () => Checkbox(
                       autofocus: true,
                       focusColor: Colors.amberAccent,
                       checkColor: const Color(0xffF2C94C),
                       activeColor: const Color(0xffF2C94C),
                       shape: const CircleBorder(
-                          side: BorderSide(
-                              color: Color(0xffF2C94C)
-                          ),
+                        side: BorderSide(
+                            color: Color(0xffF2C94C)
+                        ),
                       ),
                       value: controller.checkBool2.value,
                       onChanged: (value) {
                         controller.checkBool2.value =
-                            !controller.checkBool2.value;
+                        !controller.checkBool2.value;
                         if (controller.checkBool1 != false.obs) {
                           controller.checkBool2.value =
-                              !controller.checkBool2.value;
+                          !controller.checkBool2.value;
                         }
                       }),
                 ),
