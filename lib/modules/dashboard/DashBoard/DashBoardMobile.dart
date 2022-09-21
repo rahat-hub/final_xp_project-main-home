@@ -1,7 +1,9 @@
+import 'package:final_xp_project/modules/dashboard/DashBoardNavigationDrawer/pageLayer.dart';
 import 'package:final_xp_project/modules/dashboard/dashboard_logic.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import '../DashBoardNavigationDrawer/headerLayer.dart';
 import '../DashboardLayers/bottomLayer.dart';
 import '../DashboardLayers/midLayer.dart';
 import '../DashboardLayers/topLayer.dart';
@@ -24,7 +26,16 @@ class DashboardPageMobilePortrait extends GetView<DashboardLogic> {
     Get.find<DashboardLogic>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dashboard"),
+        title: Center(child: Text("Dashboard")),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            HeaderDrawerNavigationBar.headerDrawerNavigationBar(sizingInformation: sizingInformation),
+            PageDrawerNavigationBar.pageDrawerNavigationBar(sizingInformation: sizingInformation),
+          ],
+
+        ),
       ),
       body: ListView(
         children: [

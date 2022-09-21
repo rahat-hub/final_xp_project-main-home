@@ -1,7 +1,12 @@
+import 'package:final_xp_project/modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/india/india_binding.dart';
+import 'package:final_xp_project/modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/india/india_view.dart';
+import 'package:final_xp_project/modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/pakistan/pakistan_binding.dart';
+import 'package:final_xp_project/modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/pakistan/pakistan_view.dart';
 import 'package:final_xp_project/modules/forgetpassword/forgetpassword_binding.dart';
 import 'package:final_xp_project/modules/forgetpassword/forgetpassword_view.dart';
 import 'package:get/get_navigation/src/routes/get_route.dart';
-
+import '../modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/bangladesh/bangladesh_binding.dart';
+import '../modules/dashboard/DashBoardNavigationDrawer/NavigationDrowerPage/bangladesh/bangladesh_view.dart';
 import '../modules/dashboard/dashboard_binding.dart';
 import '../modules/dashboard/dashboard_view.dart';
 import '../modules/login/login_binding.dart';
@@ -39,6 +44,27 @@ class AppRoutes{
         page: () => const ForgetpasswordPage(),
         bindings: [
           ForgetpasswordBinding(),
+        ]
+    ),
+    GetPage(
+        name: AppPages.DRAWERPAGEBANGLADESH,
+        page: () => const BangladeshPage(),
+        bindings: [
+          BangladeshBinding(),
+        ]
+    ),
+    GetPage(
+        name: AppPages.DRAWERPAGEINDIA,
+        page: () => const IndiaPage(),
+        bindings: [
+          IndiaBinding(),
+        ]
+    ),
+    GetPage(
+        name: AppPages.DRAWERPAGEPAKISTAN,
+        page: () => const PakistanPage(),
+        bindings: [
+          PakistanBinding(),
         ]
     )
   ];

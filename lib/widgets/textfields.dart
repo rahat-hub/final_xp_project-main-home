@@ -6,7 +6,7 @@ abstract class TextFieldProject {
       hintText,
       obscureText,
       inputText,
-      validation}) {
+      validation,controller}) {
     return TextFormField(
       autovalidateMode: AutovalidateMode.onUserInteraction,
       keyboardType: inputText,

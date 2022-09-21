@@ -14,7 +14,10 @@ class RegisterPageMobilePortrait extends GetView<RegistrationLogic>{
 
   final SizingInformation? sizingInformation;
 
-  const RegisterPageMobilePortrait({Key? key, this.sizingInformation})
+  TextEditingController password = TextEditingController();
+  TextEditingController confirmpassword = TextEditingController();
+
+  RegisterPageMobilePortrait({Key? key, this.sizingInformation})
       : super(key: key);
 
   @override
@@ -31,7 +34,7 @@ class RegisterPageMobilePortrait extends GetView<RegistrationLogic>{
             child: TextFieldProject.textField(hintText:'Your name',obscureText: false, inputText: TextInputType.name,
                 validation: FormBuilderValidators.compose([
                   FormBuilderValidators.required(errorText: "Enter your name"),
-                  FormBuilderValidators.minLength(8,errorText: "Please enter valid email")
+                  FormBuilderValidators.minLength(4,errorText: "Name is too Short!")
                 ])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
@@ -46,20 +49,24 @@ class RegisterPageMobilePortrait extends GetView<RegistrationLogic>{
                 validation: FormBuilderValidators.compose([
                   FormBuilderValidators.required(errorText: "Enter phone number"),
                   FormBuilderValidators.numeric(errorText: "Type number"),
-                  FormBuilderValidators.maxLength(11,errorText: "Phone number is not valid")
+                  FormBuilderValidators.minLength(11,errorText: "Phone number is not valid"),
+                  FormBuilderValidators.maxLength(11,errorText: "Phone number is not valid"),
                 ])),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
             child: TextFieldProject.textField(hintText:'Password',obscureText: true, inputText: TextInputType.visiblePassword,
                 validation: FormBuilderValidators.compose([
                   FormBuilderValidators.required(errorText: "Enter Password"),
-                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")])),
+                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
+
+            ),
           ),
           Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
             child: TextFieldProject.textField(hintText:'Confirm Password',obscureText: true, inputText: TextInputType.visiblePassword,
                 validation: FormBuilderValidators.compose([
                   FormBuilderValidators.required(errorText: "Enter Password"),
-                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")])),
+                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
+            ),
           ),
           const SizedBox(height: 30,),
           Padding(padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 30.0),
@@ -106,6 +113,6 @@ class RegisterPageMobileLandscape extends GetView<RegistrationLogic>{
   @override
   Widget build(BuildContext context){
     Get.find<RegistrationLogic>();
-    return Scaffold();
+    return const Scaffold();
   }
 }
