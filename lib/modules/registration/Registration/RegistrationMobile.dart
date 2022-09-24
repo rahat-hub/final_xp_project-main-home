@@ -25,80 +25,83 @@ class RegisterPageMobilePortrait extends GetView<RegistrationLogic>{
     Get.find<RegistrationLogic>();
     return Scaffold(
       backgroundColor: const Color(0xff5E4949),
-      body: ListView(
-        children: [
-          const SizedBox(height: 100,),
-          SvgPicture.asset('assets/images/messxp.svg', height: MediaQuery.of(context).size.height * .10,),
-          const SizedBox(height: 50,),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 5.0),
-            child: TextFieldProject.textField(hintText:'Your name',obscureText: false, inputText: TextInputType.name,
-                validation: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(errorText: "Enter your name"),
-                  FormBuilderValidators.minLength(4,errorText: "Name is too Short!")
-                ])),
-          ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Email',obscureText: false, inputText: TextInputType.emailAddress,
-                validation: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(errorText: "Enter email"),
-                  FormBuilderValidators.email(errorText: "Please enter valid email")
-                ])),
-          ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Phone',obscureText: false, inputText: TextInputType.number,
-                validation: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(errorText: "Enter phone number"),
-                  FormBuilderValidators.numeric(errorText: "Type number"),
-                  FormBuilderValidators.minLength(11,errorText: "Phone number is not valid"),
-                  FormBuilderValidators.maxLength(11,errorText: "Phone number is not valid"),
-                ])),
-          ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Password',obscureText: true, inputText: TextInputType.visiblePassword,
-                validation: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(errorText: "Enter Password"),
-                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 100,),
+            SvgPicture.asset('assets/images/messxp.svg', height: MediaQuery.of(context).size.height * .10,),
+            const SizedBox(height: 50,),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 5.0),
+              child: TextFieldProject.textField(hintText:'Your name',obscureText: false, inputText: TextInputType.name,
+                  validation: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(errorText: "Enter your name"),
+                    FormBuilderValidators.minLength(4,errorText: "Name is too Short!")
+                  ])),
+            ),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
+              child: TextFieldProject.textField(hintText:'Email',obscureText: false, inputText: TextInputType.emailAddress,
+                  validation: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(errorText: "Enter email"),
+                    FormBuilderValidators.email(errorText: "Please enter valid email")
+                  ])),
+            ),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
+              child: TextFieldProject.textField(hintText:'Phone',obscureText: false, inputText: TextInputType.number,
+                  validation: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(errorText: "Enter phone number"),
+                    FormBuilderValidators.numeric(errorText: "Type number"),
+                    FormBuilderValidators.minLength(11,errorText: "Phone number is not valid"),
+                    FormBuilderValidators.maxLength(11,errorText: "Phone number is not valid"),
+                  ])),
+            ),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
+              child: TextFieldProject.textField(hintText:'Password',obscureText: true, inputText: TextInputType.visiblePassword,
+                  validation: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(errorText: "Enter Password"),
+                    FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
 
+              ),
             ),
-          ),
-          Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
-            child: TextFieldProject.textField(hintText:'Confirm Password',obscureText: true, inputText: TextInputType.visiblePassword,
-                validation: FormBuilderValidators.compose([
-                  FormBuilderValidators.required(errorText: "Enter Password"),
-                  FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
+            Padding(padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10.0),
+              child: TextFieldProject.textField(hintText:'Confirm Password',obscureText: true, inputText: TextInputType.visiblePassword,
+                  validation: FormBuilderValidators.compose([
+                    FormBuilderValidators.required(errorText: "Enter Password"),
+                    FormBuilderValidators.minLength(6,errorText: "must be 6 character")]),
+              ),
             ),
-          ),
-          const SizedBox(height: 30,),
-          Padding(padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 30.0),
-            child: Buttons.buttons(text: "Register",RoutesName: AppPages.LOGIN),
-          ),
-          Center(
-            child: Row(children: [
-              const SizedBox(width: 60,),
-              const Padding(
-                padding: EdgeInsets.all(0.0),
-                child: Center(
-                  child: Text("Already have an account !",
-                    //textAlign:  TextAlign.center,
-                    style:
-                    TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
+            const SizedBox(height: 30,),
+            Padding(padding: const EdgeInsets.symmetric(vertical: 30.0,horizontal: 30.0),
+              child: Buttons.buttons(text: "Register",RoutesName: AppPages.LOGIN),
+            ),
+            Center(
+              child: Row(children: [
+                const SizedBox(width: 60,),
+                const Padding(
+                  padding: EdgeInsets.all(0.0),
+                  child: Center(
+                    child: Text("Already have an account !",
+                      //textAlign:  TextAlign.center,
+                      style:
+                      TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
+                TextButtons.textButtons(text: "Login Now", RoutesName: AppPages.LOGIN,alignment: TextAlign.center),
+              ],
               ),
-              TextButtons.textButtons(text: "Login Now", RoutesName: AppPages.LOGIN,alignment: TextAlign.center),
-            ],
             ),
-          ),
-          const SizedBox(height: 50,),
-          Padding(padding: const EdgeInsets.all(10.0),
-            child :
-            SvgPicture.asset('assets/icon/i_button.svg', height: MediaQuery.of(context).size.height * .03,
-                alignment: Alignment.bottomRight),
-          )
-        ],
+            const SizedBox(height: 50,),
+            Padding(padding: const EdgeInsets.all(10.0),
+              child : Align(
+                alignment: Alignment.bottomRight,
+                child : SvgPicture.asset('assets/icon/i_button.svg', height: MediaQuery.of(context).size.height * .03,),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

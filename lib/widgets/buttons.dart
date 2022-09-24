@@ -10,7 +10,7 @@ abstract class Buttons{
         Get.toNamed(RoutesName);
         //Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardPage())
       },
-      color: Color(0xffF2C94C),
+      color: const Color(0xffF2C94C),
       shape: RoundedRectangleBorder(
         side: const BorderSide(
           color:  Color(0xffF2C94C),

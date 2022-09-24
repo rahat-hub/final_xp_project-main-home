@@ -6,8 +6,8 @@ class PageDrawerNavigationBar{
     return Column(
       children: [
         ListTile(
-          title: Text("BANGLADESH"),
-          trailing: Icon(Icons.arrow_forward),
+          title: const Text("BANGLADESH"),
+          trailing: const Icon(Icons.arrow_forward),
           onTap: (){
             Get.toNamed(AppPages.DRAWERPAGEBANGLADESH);
             //Navigator.push(context, MaterialPageRoute(builder: (cnx){return PageBappyDrawerNavigationBar.pageBappyDrawerNavigationBar();}));
@@ -15,15 +15,15 @@ class PageDrawerNavigationBar{
           },
         ),
         ListTile(
-          title: Text("INDIA"),
-          trailing: Icon(Icons.arrow_forward),
+          title: const Text("INDIA"),
+          trailing: const Icon(Icons.arrow_forward),
           onTap: (){
             Get.toNamed(AppPages.DRAWERPAGEINDIA);
           },
         ),
         ListTile(
-          title: Text("PAKISTAN"),
-          trailing: Icon(Icons.arrow_forward),
+          title: const Text("PAKISTAN"),
+          trailing: const Icon(Icons.arrow_forward),
           onTap: (){
             Get.toNamed(AppPages.DRAWERPAGEPAKISTAN);
           },

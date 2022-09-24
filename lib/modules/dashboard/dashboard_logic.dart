@@ -5,41 +5,26 @@ import 'package:get/get.dart';
 
 class DashboardLogic extends GetxController {
 
+  late PageController pageController;
+
   var selectedIndex = 0.obs;
 
-  List<Widget> pageList = [
+  @override
+  void onInit(){
+    super.onInit();
+    pageController = PageController(initialPage : 0, keepPage: true);
+    pageController.addListener(() {
+      print(selectedIndex.value);
+      print(pageController.page!.toInt());
 
-    ListView(
-      children: [
-        CardViewEvent.cardViewEvent(DateName: "24 April 1997",titleString: "Monthly Feast on 24th April 1997",NameString:'Rahat'),
-        CardViewEvent.cardViewEvent(DateName: "24 April 1997",titleString: "Monthly Feast on 24th April 1997",NameString:'Rahat'),
-      ],
-    ),
-    ListView(
-      children: [
-        CardViewEvent.cardViewEvent(DateName: "1 December 1995",titleString: "Monthly Feast on 1st December 1995",NameString:'Surjit'),
-        CardViewEvent.cardViewEvent(DateName: "1 December 1995",titleString: "Monthly Feast on 1st December 1995",NameString:'Surjit'),
-      ],
-    ),
-    ListView(
-      children: [
-        CardViewEvent.cardViewEvent(DateName: "2 August 1996",titleString: "Monthly Feast on 2nd August 1996",NameString:'Bappy'),
-        CardViewEvent.cardViewEvent(DateName: "2 August 1996",titleString: "Monthly Feast on 2nd August 1996",NameString:'Bappy'),
-      ],
-    ),
-    ListView(
-      children: [
-        CardViewEvent.cardViewEvent(DateName: "10 July 1995",titleString: "Monthly Feast on 10th July 1995",NameString:'Ripon'),
-        CardViewEvent.cardViewEvent(DateName: "10 July 1995",titleString: "Monthly Feast on 10th July 1995",NameString:'Ripon'),
-      ],
-    )
-
-
-/*    CardViewEvent.cardViewEvent(DateName: "24 April 1997",titleString: "Monthly Feast on 24th April 1997",NameString:'Rahat'),
-    CardViewEvent.cardViewEvent(DateName: "1 December 1995",titleString: "Monthly Feast on 1st December 1995",NameString:'Surjit'),
-    CardViewEvent.cardViewEvent(DateName: "2 August 1996",titleString: "Monthly Feast on 2nd August 1996",NameString:'Bappy'),
-    CardViewEvent.cardViewEvent(DateName: "10 July 1995",titleString: "Monthly Feast on 10th July 1995",NameString:'Ripon'),*/
-  ];
+      try{
+        selectedIndex.value = pageController.page!.toInt();
+      }
+      catch(e){
+        //print(e);
+      }
+    });
+  }
 
   @override
   void onReady() {

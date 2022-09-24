@@ -10,23 +10,20 @@ import '../DashboardLayers/topLayer.dart';
 
 class DashboardPageMobilePortrait extends GetView<DashboardLogic> {
   final SizingInformation? sizingInformation;
-  PageController pageController = PageController();
   var tabData = [
     "All",
     "Monthly feast",
     "Eid",
     "Puja",
   ];
-
   DashboardPageMobilePortrait({Key? key, this.sizingInformation})
       : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Get.find<DashboardLogic>();
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Dashboard")),
+        title: const Center(child: Text("Dashboard")),
       ),
       drawer: Drawer(
         child: ListView(
@@ -43,7 +40,6 @@ class DashboardPageMobilePortrait extends GetView<DashboardLogic> {
           DashboardMidLayer.midLayer(sizingInformation: sizingInformation),
           DashboardBottomLayer.bottomLayer(
               sizingInformation: sizingInformation,
-              controller: pageController,
               dashboardLogic: controller,
               tabData: tabData),
         ],

@@ -12,6 +12,36 @@ class DashboardBottomLayer {
       PageController? controller,
       tabData,
       DashboardLogic? dashboardLogic}) {
+
+    List<Widget> pageList = [
+
+      ListView(
+        children: [
+          CardViewEvent.cardViewEvent(DateName: "24 April 1997",titleString: "Monthly Feast on 24th April 1997",NameString:'Rahat'),
+          CardViewEvent.cardViewEvent(DateName: "24 April 1997",titleString: "Monthly Feast on 24th April 1997",NameString:'Rahat'),
+        ],
+      ),
+      ListView(
+        children: [
+          CardViewEvent.cardViewEvent(DateName: "1 December 1995",titleString: "Monthly Feast on 1st December 1995",NameString:'Surjit'),
+          CardViewEvent.cardViewEvent(DateName: "1 December 1995",titleString: "Monthly Feast on 1st December 1995",NameString:'Surjit'),
+        ],
+      ),
+      ListView(
+        children: [
+          CardViewEvent.cardViewEvent(DateName: "2 August 1996",titleString: "Monthly Feast on 2nd August 1996",NameString:'Bappy'),
+          CardViewEvent.cardViewEvent(DateName: "2 August 1996",titleString: "Monthly Feast on 2nd August 1996",NameString:'Bappy'),
+        ],
+      ),
+      ListView(
+        children: [
+          CardViewEvent.cardViewEvent(DateName: "10 July 1995",titleString: "Monthly Feast on 10th July 1995",NameString:'Ripon'),
+          CardViewEvent.cardViewEvent(DateName: "10 July 1995",titleString: "Monthly Feast on 10th July 1995",NameString:'Ripon'),
+        ],
+      )
+    ];
+
+
     return SizedBox(
       height: 350,
       child: Column(
@@ -27,11 +57,9 @@ class DashboardBottomLayer {
                 return Obx(() {
                   return InkWell(
                     onTap: () {
-                      if (kDebugMode) {
-                        print(index);
-                      }
                       dashboardLogic?.selectedIndex.value = index;
-                      controller?.animateToPage(index,
+
+                      dashboardLogic?.pageController.animateToPage(index,
                           curve: Curves.easeIn,
                           duration: const Duration(milliseconds: 800));
                     },
@@ -57,8 +85,8 @@ class DashboardBottomLayer {
           ),
           Expanded(
             child: PageView(
-              controller: controller,
-              children: dashboardLogic?.pageList as List<Widget>,
+              controller: dashboardLogic?.pageController,
+              children:pageList,
             ),
           ),
           const SizedBox(
