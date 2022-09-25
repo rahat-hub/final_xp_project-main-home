@@ -58,7 +58,6 @@ class DashboardBottomLayer {
                   return InkWell(
                     onTap: () {
                       dashboardLogic?.selectedIndex.value = index;
-
                       dashboardLogic?.pageController.animateToPage(index,
                           curve: Curves.easeIn,
                           duration: const Duration(milliseconds: 800));

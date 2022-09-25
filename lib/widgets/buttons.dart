@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class Buttons{
-  static buttons({text,RoutesName,onTap}){
+  static buttons({text,RoutesName,onPressed}){
     return MaterialButton(
       minWidth: double.infinity,
       height: 60,
-      onPressed: (){
-        Get.toNamed(RoutesName);
-        //Navigator.push(context, MaterialPageRoute(builder: (context) => const DashboardPage())
-      },
+      onPressed: () => onPressed (),
       color: const Color(0xffF2C94C),
       shape: RoundedRectangleBorder(
         side: const BorderSide(

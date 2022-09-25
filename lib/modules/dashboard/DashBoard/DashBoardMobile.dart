@@ -73,12 +73,67 @@ class DashboardPageMobilePortrait extends GetView<DashboardLogic> {
 
 class DashboardPageMobileLandscape extends StatelessWidget {
   final SizingInformation? sizingInformation;
+  var tabData = [
+    "All",
+    "Monthly feast",
+    "Eid",
+    "Puja",
+  ];
 
-  const DashboardPageMobileLandscape({Key? key, this.sizingInformation})
+  DashboardPageMobileLandscape({Key? key, this.sizingInformation})
       : super(key: key);
+
+  get controller => null;
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Get.find<DashboardLogic>();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Center(child: Text("Dashboard")),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            HeaderDrawerNavigationBar.headerDrawerNavigationBar(sizingInformation: sizingInformation),
+            PageDrawerNavigationBar.pageDrawerNavigationBar(sizingInformation: sizingInformation),
+          ],
+
+        ),
+      ),
+      body: ListView(
+        children: [
+          DashboardTopLayer.topLayer(sizingInformation: sizingInformation),
+          DashboardMidLayer.midLayer(sizingInformation: sizingInformation),
+          DashboardBottomLayer.bottomLayer(
+              sizingInformation: sizingInformation,
+              dashboardLogic: controller,
+              tabData: tabData),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            label: "MEMBERS",
+            icon: Icon(
+              null,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: "BAZAR LIST",
+            icon: Icon(
+              null,
+            ),
+          ),
+          BottomNavigationBarItem(
+            label: "#MEAL",
+            icon: Icon(
+              null,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
